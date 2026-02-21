@@ -1,0 +1,3 @@
+rootProject.name = 'libby'
+
+include 'core', 'bukkit', 'bungee', 'nukkit', 'sponge', 'velocity', 'paper'

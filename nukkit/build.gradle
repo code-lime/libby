@@ -1,0 +1,15 @@
+repositories {
+    maven { url 'https://repo.opencollab.dev/maven-releases' }
+    maven { url 'https://repo.opencollab.dev/maven-snapshots' }
+}
+
+dependencies {
+    implementation project(':core')
+    compileOnly 'cn.nukkit:nukkit:1.0-SNAPSHOT'
+}
+
+jar {
+    manifest {
+        attributes('Automatic-Module-Name': 'net.byteflux.libby.nukkit')
+    }
+}

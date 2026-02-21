@@ -1,0 +1,14 @@
+repositories {
+    maven { url 'https://repo.spongepowered.org/maven/' }
+}
+
+dependencies {
+    implementation project(':core')
+    compileOnly 'org.spongepowered:spongeapi:8.1.0'
+}
+
+jar {
+    manifest {
+        attributes('Automatic-Module-Name': 'net.byteflux.libby.sponge')
+    }
+}

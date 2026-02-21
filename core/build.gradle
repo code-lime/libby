@@ -1,0 +1,17 @@
+def generatedJavaDir = layout.buildDirectory.dir('generated/sources/java').get().asFile
+
+def processTemplates = tasks.register('processTemplates', Copy) {
+    from 'src/main/java-templates'
+    into generatedJavaDir
+    expand(project: [version: version])
+    filteringCharset = 'UTF-8'
+}
+
+sourceSets.main.java.srcDir(generatedJavaDir)
+tasks.named('compileJava').configure { dependsOn processTemplates }
+
+jar {
+    manifest {
+        attributes('Automatic-Module-Name': 'net.byteflux.libby.core')
+    }
+}
