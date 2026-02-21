@@ -36,7 +36,7 @@ jobs:
           gradle-version: wrapper
 
       - name: Publish
-        run: gradle publish
+        run: ./gradlew publish --build-cache --parallel
 
       - name: Release
         uses: softprops/action-gh-release@v2
